@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReChat - Data Deletion Request</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #008D87, #03DAC6);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: "🗑️";
+            font-size: 1.2em;
+        }
+
+        .section:nth-child(2) .section-title::before { content: "📱"; }
+        .section:nth-child(3) .section-title::before { content: "⚙️"; }
+        .section:nth-child(4) .section-title::before { content: "📊"; }
+        .section:nth-child(5) .section-title::before { content: "⏰"; }
+        .section:nth-child(6) .section-title::before { content: "📞"; }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "•";
+            color: #008D87;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .highlight.warning {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .highlight.success {
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #008D87;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            background: #008D87;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #008D87, #03DAC6);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .content {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <div class="logo">
+                <img src="logo.png" alt="ReChat Logo">
+            </div>
+            <h1>ReChat</h1>
+            <p class="subtitle">Data Deletion Request</p>
+        </div>
+
+        <div class="content fade-in">
+            <div class="section">
+                <div class="section-title">How to Delete Your Data</div>
+                <p>ReChat stores all your data locally on your device. You have complete control over your data and can delete it at any time using the methods below.</p>
+                
+                <div class="highlight success">
+                    <strong>✅ Complete Control:</strong> All your data is stored locally on your device. No data is stored on our servers or in the cloud.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Method 1: Delete Data from Within the App</div>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Open ReChat app</strong>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Go to Settings</strong> (tap the settings icon in the app)
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Navigate to Developer Tools</strong>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Select "Complete Data Wipe"</strong> to delete all data for all monitored apps
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Confirm deletion</strong> when prompted
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Method 2: Delete Data from Android Settings</div>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Open Android Settings</strong>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Go to Apps & notifications</strong> (or "Apps" on some devices)
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Find and tap "ReChat"</strong>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Tap "Storage"</strong>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Tap "Clear Storage"</strong> or "Clear Data"
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">6</span>
+                    <strong>Confirm deletion</strong> when prompted
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Method 3: Uninstall the App</div>
+                <p>The simplest way to delete all your data is to uninstall the ReChat app:</p>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Long press the ReChat app icon</strong> on your home screen
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Select "Uninstall"</strong> or drag to the uninstall area
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Confirm uninstallation</strong>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Note:</strong> Uninstalling the app will permanently delete all your recovered messages, media, and app settings.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">What Data Gets Deleted</div>
+                <p>When you delete your data, the following information will be permanently removed:</p>
+                
+                <ul>
+                    <li><strong>All recovered messages</strong> from WhatsApp, Telegram, Messenger, Instagram, and other supported apps</li>
+                    <li><strong>All deleted message records</strong> and recovery history</li>
+                    <li><strong>All media files</strong> (images, videos, audio, documents) saved by the app</li>
+                    <li><strong>All WhatsApp statuses</strong> saved by the app</li>
+                    <li><strong>All app settings</strong> and configuration data</li>
+                    <li><strong>All monitoring preferences</strong> and selected apps</li>
+                    <li><strong>All keyword tracking data</strong> and search history</li>
+                    <li><strong>All debug logs</strong> and diagnostic information</li>
+                </ul>
+                
+                <div class="highlight warning">
+                    <strong>⚠️ Important:</strong> This action cannot be undone. Once deleted, your data cannot be recovered.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Data Retention Policy</div>
+                <p>ReChat follows a strict local-only data policy:</p>
+                
+                <ul>
+                    <li><strong>No cloud storage:</strong> We do not store any of your data on our servers</li>
+                    <li><strong>No data transmission:</strong> Your data never leaves your device</li>
+                    <li><strong>Immediate deletion:</strong> When you delete data, it is removed immediately from your device</li>
+                    <li><strong>No retention period:</strong> We do not keep any copies of your data</li>
+                    <li><strong>Complete user control:</strong> You decide when and how to delete your data</li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <h3>📞 Need Help?</h3>
+                <p>If you have questions about data deletion or need assistance, contact us through:</p>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li>• ReChat app Settings > Help section</li>
+                    <li>• Google Play Store support</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 ReChat. All rights reserved. | Your Privacy, Your Control</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and fade-in effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
